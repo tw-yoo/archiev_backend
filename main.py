@@ -47,11 +47,11 @@ def get_inference_result(model_name: str):
 
     inference_result = get_inference_result_probs(uid,model_df, model_name, req)
 
-    res = get_response(model_name, uid, inference_result)
+    # res = get_response(model_name, uid, inference_result)
 
-    os.remove(f"{uid}.csv")
+    # os.remove(f"{uid}.csv")
 
-    return res.__dict__
+    return model_name
 
 
 @app.route("/test/inference/<model_name>", methods=['POST'])

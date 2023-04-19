@@ -11,9 +11,13 @@ import tensorflow as tf
 import tensorflow_hub as hub
 from codecarbon import track_emissions, EmissionsTracker
 
+from datetime import datetime
+
+now = datetime.now()
+
 
 def get_image(uid, r):
-    tracker = EmissionsTracker(project_name="step1", output_file=f"{uid}.csv")
+    tracker = EmissionsTracker(project_name="step1", output_file=f"result/{now}.csv")
     tracker.start()
 
     data_io = io.BytesIO(r)
@@ -25,7 +29,7 @@ def get_image(uid, r):
 
 
 def load_model(uid, model_url: str, input_size: int):
-    tracker = EmissionsTracker(project_name="step2", output_file=f"{uid}.csv")
+    tracker = EmissionsTracker(project_name="step2", output_file=f"result/{now}.csv")
     tracker.start()
 
     model = tf.keras.Sequential([
@@ -39,7 +43,7 @@ def load_model(uid, model_url: str, input_size: int):
 
 
 def get_resized_np_array(uid, image, input_size):
-    tracker = EmissionsTracker(project_name="step3", output_file=f"{uid}.csv")
+    tracker = EmissionsTracker(project_name="step3", output_file=f"result/{now}.csv")
     tracker.start()
 
     image = image.resize((480, 480))
@@ -54,7 +58,7 @@ def get_resized_np_array(uid, image, input_size):
 
 
 def get_inference_result(uid, model, np_array):
-    tracker = EmissionsTracker(project_name="step4", output_file=f"{uid}.csv")
+    tracker = EmissionsTracker(project_name="step4", output_file=f"result/{now}.csv")
     tracker.start()
 
     probs = model.predict(np_array)
