@@ -167,21 +167,52 @@ def get_model_url(model_name):
     return query_result['url']
 
 
-@app.route("/download-models", methods=['POST'])
+@app.route("/download-models-1", methods=['POST'])
 @cross_origin(supports_credentials=True)
-def download_pretrained_models():
+def download_pretrained_models_1():
     models.alexnet(weights=True)
+
+@app.route("/download-models-2", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_2():
     models.densenet121(weights=True)
+
+@app.route("/download-models-3", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_3():
     models.efficientnet_b0(weights=True)
+
+@app.route("/download-models-4", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_4():
     models.googlenet(weights=True)
+
+@app.route("/download-models-5", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_5():
     models.inception_v3(weights=True)
+
+@app.route("/download-models-6", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_6():
     models.mobilenet_v2(weights=True)
+
+@app.route("/download-models-7", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_7():
     models.resnet50(weights=True)
+
+@app.route("/download-models-8", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_8():
     models.shufflenet_v2_x1_0(weights=True)
+
+@app.route("/download-models-9", methods=['POST'])
+@cross_origin(supports_credentials=True)
+def download_pretrained_models_9():
     models.vgg11(weights=True)
 
 
 if __name__ == '__main__':
-    download_pretrained_models()
     app.run(host='0.0.0.0', port=8000, debug=True)
 
