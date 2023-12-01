@@ -3,8 +3,10 @@ Flask==3.0.0
 Flask-Cors==4.0.0
 pandas==2.1.3
 Pillow==10.1.0
+torch==1.11.0+cpu
+torchvision==0.42.0+cpu
 
---find-links https://download.pytorch.org/whl/cpu
-torch==1.13.1+cpu
-torchvision==0.14.1+cpu
-torchaudio==0.13.1+cpu
+# CPU-only versions of PyTorch, torchvision, and torchaudio
+# https://download.pytorch.org/whl/cpu/torch-1.13.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+# https://download.pytorch.org/whl/cpu/torchvision-0.14.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+# https://download.pytorch.org/whl/cpu/torchaudio-0.13.1-cp39-cp39-linux_x86_64.whl
