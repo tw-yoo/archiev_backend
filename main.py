@@ -112,7 +112,7 @@ def test(model_name: str):
         categories = [s.strip() for s in f.readlines()]
 
     probabilities = torch.nn.functional.softmax(output[0], dim=0)
-    top5_prob, top5_catid = torch.topk(probabilities, 5)
+    top5_prob, top5_catid = torch.topk(probabilities, 10)
 
     inference_result = []
     for i in range(top5_prob.size(0)):
@@ -166,6 +166,9 @@ def get_model_url(model_name):
     query_result = model_df.query(f"name == '{model_name}'").iloc[0]
     return query_result['url']
 
+
+@app.route("/download-models", methods=['POST'])
+@cross_origin(supports_credentials=True)
 def download_pretrained_models():
     models.alexnet(weights=True)
     models.densenet121(weights=True)
