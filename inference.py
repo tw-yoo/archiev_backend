@@ -8,8 +8,8 @@ import pandas as pd
 from emission_result import LabelAndProb
 
 Image.MAX_IMAGE_PIXELS = None
-import tensorflow as tf
-import tensorflow_hub as hub
+# import tensorflow as tf
+# import tensorflow_hub as hub
 from codecarbon import track_emissions, EmissionsTracker
 
 
